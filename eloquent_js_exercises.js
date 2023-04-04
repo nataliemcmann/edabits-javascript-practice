@@ -67,24 +67,31 @@ given width and height.
 */
 
 //this is tricky, but here's what I have so far...
+//it's printing the right pattern...somewhat, but the size is not 8x8
 let counter = 0;
 let string = '';
 let size = 8;
-for (let i = 1; i <= (size); i++) {
+for (let i = 1; i <= size; i++) {
     if (counter % 2 === 0) {
-        for (let j = 0; j <= (size/2); j++) {
-            string += ' ';
-            string += '#';
+        for (let j = 0; j < (size); j++) {
+            if (j === 0 || j % 2 === 0 ){
+                string += ' ';
+                } else {
+                string += '#';
+                }
             }
     } else {
-        for (let j = 0; j <= (size/2); j++) {
-            string += '#';
-            string += ' ';
+        for (let j = 0; j < (size); j++) {
+            if (j === 0 || j % 2 === 0 ){
+                string += '#';
+                } else {
+                string += ' ';
+                }
             }
     } 
-    counter += 1;
     string += '\n'
-    if (string.length = 64) {
-        console.log(string);
-    }
+    if (string.includes('\n')) {
+        counter += 1;
+        }
 }
+console.log(string); // I just needed to move the console.log out of the loop 🤦🏻‍♀️
